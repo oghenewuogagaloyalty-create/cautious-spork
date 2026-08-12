@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community Health Resources Directory</title>
+</head>
+<body>
+    <h1>Community Health Resources Directory</h1>
+    <p>Find health services in your area</p>
+    
+    <h2>Nearby Clinics</h2>
+    <p>Sunrise Health Clinic - 123 Main St - Open 8am-6pm</p>
+    <p>Community Care Center - 456 Oak Ave - Open 24/7</p>
+    <p>Women's Health Hub - 789 Pine Rd - Open Mon-Fri 9am-5pm</p>
+    
+    <h2>Emergency Contacts</h2>
+    <p>Ambulance: 112</p>
+    <p>Poison Control: 080-POISON-HELP</p>
+    <p>Mental Health Crisis: 0800-TALK-NOW</p>
+    
+    <h2>Health Tips</h2>
+    <p>Wash hands regularly with soap and water for at least 20 seconds.</p>
+    <p>Drink 8 glasses of water daily to stay hydrated.</p>
+    <p>Get at least 30 minutes of exercise each day.</p>
+    <p>Sleep 7-9 hours every night for optimal health.</p>
+    
+    <h2>Sign Up for Health Alerts</h2>
+    <input type="email" placeholder="Your email">
+    <button>Subscribe</button>
+    
+    <p>Contact us: health@community.ng</p>
+</body>
+</html>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #0B6E69;
+    --secondary: #14B8A6;
+    --accent: #F59E0B;
+    --danger: #DC2626;
+    --background: #F0FDFA;
+    --card: #FFFFFF;
+    --text: #1F2937;
+    --muted: #64748B;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, #F0FDFA, #E0F2FE);
+    line-height: 1.7;
+}
+
+/* Main heading */
+h1 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 55px 30px 10px;
+    color: var(--primary);
+    font-size: 2.7rem;
+    text-align: center;
+    animation: fadeDown 1s ease;
+}
+
+/* Subtitle */
+h1 + p {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+/* Section headings */
+h2 {
+    max-width: 1000px;
+    margin: 45px auto 15px;
+    padding: 15px 20px;
+    color: var(--primary);
+    font-size: 1.6rem;
+    border-left: 6px solid var(--secondary);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+}
+
+/* Information cards */
+h2 + p {
+    max-width: 1000px;
+    margin: 12px auto;
+    padding: 18px 22px;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+h2 + p:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
+}
+
+/* Emergency contacts */
+h2:nth-of-type(2) {
+    border-left-color: var(--danger);
+}
+
+h2:nth-of-type(2) + p {
+    border-left: 4px solid var(--danger);
+}
+
+/* Health tips */
+h2:nth-of-type(3) + p {
+    border-left: 4px solid var(--secondary);
+}
+
+/* Signup section */
+h2:nth-of-type(4) {
+    border-left-color: var(--accent);
+}
+
+/* Email input */
+input[type="email"] {
+    display: block;
+    width: min(650px, 100%);
+    margin: 20px auto 10px;
+    padding: 15px 18px;
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input focus */
+input[type="email"]:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.15);
+}
+
+/* Subscribe button */
+button {
+    display: block;
+    margin: 10px auto 45px;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+}
+
+/* Contact information */
+body > p:last-child {
+    max-width: 1000px;
+    margin: 50px auto 0;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    background: var(--primary);
+    border-radius: 15px 15px 0 0;
+}
+
+/* Animation */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive design */
+@media (max-width: 700px) {
+
+    body {
+        padding: 0 12px;
+    }
+
+    h1 {
+        padding-top: 35px;
+        font-size: 2rem;
+    }
+
+    h1 + p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-top: 30px;
+    }
+
+    h2 + p {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+
+    input[type="email"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
