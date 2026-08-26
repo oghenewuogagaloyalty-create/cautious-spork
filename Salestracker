@@ -1,0 +1,124 @@
+
+Shop Sales Tracker
+AI for Her: CultureCoded - RISE Phase Week 2
+
+A simple console program for recording daily shop sales.
+"""
+
+from datetime import date
+
+
+def add_item(items_sold):
+    """Ask for sale details, validate them, and add the sale."""
+    name = input("Item name: ").strip()
+
+    if not name:
+        print("Item name cannot be empty.")
+        return
+
+    try:
+        price = float(input("Price (â‚¦): "))
+        quantity = int(input("Quantity: "))
+    except ValueError:
+        print("Invalid input. Please enter a number for price and quantity.")
+        return
+
+    if price < 0:
+        print("Price cannot be negative.")
+        return
+
+    if quantity <= 0:
+        print("Quantity must be greater than 0.")
+        return
+
+    subtotal = price * quantity
+
+    items_sold.append(
+        {
+            "name": name,
+            "price": price,
+            "quantity": quantity,
+            "subtotal": subtotal,
+        }
+    )
+
+    print(f"Added: {name} x{quantity} = â‚¦{subtotal:,.2f}")
+
+
+def calculate_total(items_sold):
+    """Calculate the total value of all recorded sales."""
+    return sum(item["subtotal"] for item in items_sold)
+
+
+def show_report(items_sold):
+    """Display the daily sales report."""
+    print("\n" + "=" * 40)
+    print("          DAILY SALES REPORT")
+    print("=" * 40)
+
+    if not items_sold:
+        print("No items have been recorded yet.")
+    else:
+        for item in items_sold:
+            print(
+                f"{item['name']} x{item['quantity']} "
+                f"= â‚¦{item['subtotal']:,.2f}"
+            )
+
+    print("-" * 40)
+    print(f"TOTAL SALES: â‚¦{calculate_total(items_sold):,.2f}")
+    print("=" * 40)
+
+
+def save_to_file(items_sold):
+    """Save the daily sales report to a dated text file."""
+    filename = f"sales_{date.today()}.txt"
+
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write("DAILY SALES REPORT\n")
+        file.write("=" * 40 + "\n")
+
+        if not items_sold:
+            file.write("No items have been recorded yet.\n")
+        else:
+            for item in items_sold:
+                file.write(
+                    f"{item['name']} x{item['quantity']} "
+                    f"= â‚¦{item['subtotal']:,.2f}\n"
+                )
+
+        file.write("-" * 40 + "\n")
+        file.write(f"TOTAL SALES: â‚¦{calculate_total(items_sold):,.2f}\n")
+
+    print(f"Report saved to {filename}")
+
+
+def main():
+    """Run the Shop Sales Tracker menu."""
+    items_sold = []
+
+    print("Welcome to Shop Sales Tracker!")
+    print("Track your daily sales easily.")
+
+    while True:
+        print("\nOptions:")
+        print("1. Add item sold")
+        print("2. Show report")
+        print("3. Save and exit")
+
+        choice = input("Choose (1-3): ").strip()
+
+        if choice == "1":
+            add_item(items_sold)
+        elif choice == "2":
+            show_report(items_sold)
+        elif choice == "3":
+            save_to_file(items_sold)
+            print("Report saved! Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please choose 1, 2, or 3.")
+
+
+if __name__ == "__main__":
+    main()
